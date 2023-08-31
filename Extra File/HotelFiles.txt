@@ -1,0 +1,160 @@
+create table new_customer_form(name varchar(40),age varchar(20),gender varchar(10),city varchar(30),phone_no varchar(20),email_id varchar(40),id_card varchar(30),id_card_no varchar(40),room_no varchar(30),checked_in varchar(30),deposit varchar(30),address varchar(50),pin_code_no varchar(20));
+
+
+
+
+create table add_driver(name varchar(40),age varchar(20),gender varchar(20),phone_no varchar(20),email_id varchar(40),aadhar_card_no varchar(30),car_company varchar(40),car_model varchar(40),available varchar(20),location varchar(50));
+
+
+
+
+create table add_employee(name varchar(40),age varchar(20),gender varchar(10),job varchar(40),phone_no varchar(20),email_id varchar(40),aadhar_card_no varchar(30),salary varchar(30));
+
+
+
+
+create table add_room(room_no varchar(30),availability varchar(20),bed_type varchar(20),room_type varchar(20),cleaned_status varchar(20),price varchar(40));
+
+
+
+
+
+create table new_registration(name varchar(40),age varchar(20),gender varchar(10),city varchar(30),phone_no varchar(20),email_id varchar(40),id_card varchar(30),id_card_no varchar(40),room_no varchar(30),address varchar(50),pin_code_no varchar(20));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package hotelmanagementsystem;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Dashboard extends JFrame implements Runnable {
+
+    JMenuBar ma;
+    JMenu m1, m2;
+    JMenuItem I1, I2, I3, I4;
+
+    Thread t1;
+    JLabel l1, l2, l3, l4, l5, l6, l7, l8, l9, l10;
+    JLabel[] label = new JLabel[]{l1, l2, l3, l4, l5, l6, l7, l8, l9, l10};
+
+    public void run() {
+        try {
+
+            
+            for (int i = 0; i <= 9; i++) {
+
+                this.label[i].setVisible(true);
+                Thread.sleep(2800);
+                this.label[i].setVisible(false);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    Dashboard() {
+
+        ma = new JMenuBar();
+        ma.setBounds(0, 0, 1950, 30);
+        add(ma);
+
+        m1 = new JMenu("HOTEL MANAGEMENT");
+        m1.setForeground(Color.RED);
+        ma.add(m1);
+
+        I1 = new JMenuItem("RECEPTION");
+//        I1.addActionListener(this);
+        m1.add(I1);
+
+        m2 = new JMenu("ADMIN");
+        m2.setForeground(Color.RED);
+        ma.add(m2);
+
+        I2 = new JMenuItem("ADD EMPLOYEE");
+//        I2.addActionListener(this);
+        m2.add(I2);
+
+        I3 = new JMenuItem("ADD ROOM");
+//        I3.addActionListener(this);
+        m2.add(I3);
+        
+        I4 = new JMenuItem("ADD DRIVER");
+//        I4.addActionListener(this);
+        m2.add(I4);
+
+        ImageIcon i1 = null, i2 = null, i3 = null, i4 = null, i5 = null, i6 = null, i7 = null, i8 = null, i9 = null, i10 = null;
+        ImageIcon[] iimage = new ImageIcon[]{i1, i2, i3, i4, i5, i6, i7, i8, i9, i10};
+
+        Image j1 = null, j2 = null, j3 = null, j4 = null, j5 = null, j6 = null, j7 = null, j8 = null, j9 = null, j10 = null;
+        Image[] jimage = new Image[]{j1, j2, j3, j4, j5, j6, j7, j8, j9, j10};
+
+        ImageIcon k1 = null, k2 = null, k3 = null, k4 = null, k5 = null, k6 = null, k7 = null, k8 = null, k9 = null, k10 = null;
+        ImageIcon[] kimage = new ImageIcon[]{k1, k2, k3, k4, k5, k6, k7, k8, k9, k10};
+
+        for (int i = 0; i <= 9; i++) {
+
+            iimage[i] = new ImageIcon(ClassLoader.getSystemResource("hotelmanagementsystem/icons/Dashboard" + (i + 1) + ".jpg"));
+            jimage[i] = iimage[i].getImage().getScaledInstance(1950, 1000, Image.SCALE_DEFAULT);
+            kimage[i] = new ImageIcon(jimage[i]);
+            this.label[i] = new JLabel(kimage[i]);
+            this.label[i].setBounds(0, 0, 1950, 1000);
+            add(this.label[i]);
+
+//            JLabel l2 = new JLabel("WELCOMES YOU");
+//            l2.setFont(new Font("Tahoma", Font.BOLD, 50));
+//            l2.setForeground(Color.RED);
+//            l2.setBounds(800, 60, 1000, 85);
+//            l1.add(l2);
+        }
+        
+        t1 = new Thread(this);
+            t1.start();
+
+
+        getContentPane().setBackground(Color.WHITE);
+
+        setLayout(null);
+        setBounds(0, 0, 1950, 1020);
+        setVisible(true);
+
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+
+        if (ae.getActionCommand().equals("RECEPTION")) {
+            new Reception().setVisible(true);
+            this.setVisible(false);
+        } else if (ae.getActionCommand().equals("ADD EMPLOYEE")) {
+            new AddEmployee().setVisible(true);
+        } else if (ae.getActionCommand().equals("ADD ROOM")) {
+            new AddRoom().setVisible(true);
+        } else if (ae.getActionCommand().equals("ADD DRIVER")) {
+            new AddDriver().setVisible(true);
+        }
+    }
+
+    public static void main(String[] args) {
+        new Dashboard().setVisible(true);
+    }
+
+}

@@ -1,0 +1,295 @@
+package universitymanagementsystem;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
+
+public class Project extends JFrame implements Runnable {
+
+    JLabel l1, l2, l3, l4, l5, l6;
+
+    Thread t;
+
+    JLabel[] l = new JLabel[]{l1, l2, l3, l4, l5, l6};
+
+    public void run() {
+
+        try {
+
+            for (int i = 0; i <= 5; i++) {
+
+                this.l[i].setVisible(true);
+                Thread.sleep(2800);
+
+                this.l[i].setVisible(false);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    Project() {
+
+        ImageIcon i1 = null, i2 = null, i3 = null, i4 = null, i5 = null, i6 = null;
+        ImageIcon[] image = new ImageIcon[]{i1, i2, i3, i4, i5, i6};
+
+        Image j1 = null, j2 = null, j3 = null, j4 = null, j5 = null, j6 = null;
+        Image[] jimage = new Image[]{j1, j2, j3, j4, j5, j6};
+
+        ImageIcon k1 = null, k2 = null, k3 = null, k4 = null, k5 = null, k6 = null;
+        ImageIcon[] iimage = new ImageIcon[]{k1, k2, k3, k4, k5, k6};
+
+        for (int i = 0; i <= 5; i++) {
+
+            image[i] = new ImageIcon(ClassLoader.getSystemResource("universitymanagementsystem/icons/Photo" + (i + 1) + ".jpg"));
+            jimage[i] = image[i].getImage().getScaledInstance(1930, 1000, Image.SCALE_DEFAULT);
+            iimage[i] = new ImageIcon(jimage[i]);
+            this.l[i] = new JLabel(iimage[i]);
+            this.l[i].setBounds(0, 0, 1920, 1000);
+            add(this.l[i]);
+        }
+
+        t = new Thread(this);
+        t.start();
+
+        setLayout(null);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new Project();
+
+    }
+
+}
+17:06 03-03-202117:06 03-03-2021
+
+
+
+
+        t1.addFocusListener(new FocusListener() {
+
+            public void focusGained(FocusEvent e) {
+                if (t1.getText().trim().toLowerCase().equals("username")) {
+                    t1.setText("");
+                    t1.setForeground(Color.BLACK);
+                }
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (t1.getText().trim().equals("") || t1.getText().trim().toLowerCase().equals("username")) {
+                    t1.setText("UserName");
+                    t1.setForeground(Color.BLACK);
+                }
+            }
+        });
+
+        t2.addFocusListener(new FocusListener() {
+
+            public void focusGained(FocusEvent e) {
+                if (t2.getText().equals("Password")) {
+                    t2.setText("");
+                    t2.setForeground(Color.BLACK);
+                }
+            }
+
+            public void focusLost(FocusEvent e) {
+                if (t2.getText().trim().equals("") || t2.getText().trim().toLowerCase().equals("password")) {
+                    t2.setText("Password");
+                    t2.setForeground(Color.BLACK);
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+else if ((t7.getText().isEmpty()) || check_aadhar_card_no(t7.getText()) || check_pan_card_no(t7.getText()) || check_driving_license_no(t7.getText()) || check_voter_id_card_no(t7.getText())) {
+
+                if (id_card.equals("Aadhar Card")) {
+
+                    if (id_card_no.length() == 0) {
+
+                        JOptionPane.showMessageDialog(null, "Please Enter Student Aadhar Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    } else if (check_aadhar_card_no(t7.getText())) {
+
+                        JOptionPane.showMessageDialog(null, "Please Enter Student Valid 12 Digit Aadhar Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    }
+
+                } else if (id_card.equals("Pan Card")) {
+
+                    if (id_card_no.length() == 0) {
+
+                        JOptionPane.showMessageDialog(null, "Please Enter Student Pan Card Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    } else if (!check_pan_card_no(t7.getText())) {
+
+                        JOptionPane.showMessageDialog(null, "Please Enter Student Valid 10 Digit Pan card Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    }
+
+                } else if (id_card.equals("Driving License")) {
+
+                    if (id_card_no.length() == 0) {
+
+                        JOptionPane.showMessageDialog(null, "Please Enter Student Driving License Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    } else if (!check_driving_license_no(t7.getText())) {
+
+                        JOptionPane.showMessageDialog(null, "Please Enter Student Valid 15 Digit Driving License Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    }
+
+                } else if (id_card.equals("Voter-Id Card")) {
+
+                    if (id_card_no.length() == 0) {
+
+                        JOptionPane.showMessageDialog(null, "Please Enter Student Voter-Id Card Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    } else if (!check_voter_id_card_no(t7.getText())) {
+
+                        JOptionPane.showMessageDialog(null, "Please Enter Student Valid 10 Digit Voter-Id card Number", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                    }
+
+                }
+
+            }
+
+
+
+
+
+Boolean check_aadhar_card_no(String s
+    ) {
+
+        char s1[] = new char[13];
+        s1 = s.toCharArray();
+        int i = 0, c = 0;
+        while (i != s1.length) {
+            if (s1[i] != '0' || s1[i] != '1' || s1[i] != '2' || s1[i] != '3' || s1[i] != '4' || s1[i] != '5' || s1[i] != '6' || s1[i] != '7' || s1[i] != '8' || s1[i] != '9') {
+                c = 1;
+            }
+
+            i++;
+        }
+        if (c == 1 && i != 12) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    Boolean check_pan_card_no(String s
+    ) {
+
+        Pattern p = Pattern.compile("[A-Z]{5}[0-9]{4}[A-Z]");
+
+        if (s == null) {
+            return false;
+        }
+        Matcher m = p.matcher(s);
+
+        return m.matches();
+
+    }
+
+    Boolean check_driving_license_no(String s
+    ) {
+
+        Pattern p = Pattern.compile("[A-Z]{2}[0-9]{13}");
+
+        if (s == null) {
+            return false;
+        }
+        Matcher m = p.matcher(s);
+
+        return m.matches();
+
+    }
+
+    Boolean check_voter_id_card_no(String s
+    ) {
+
+        Pattern p = Pattern.compile("[A-Z]{3}[0-9]{7}");
+
+        if (s == null) {
+            return false;
+        }
+        Matcher m = p.matcher(s);
+
+        return m.matches();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Random UNIVERSITY = new Random();
+
+        int roll_no = 0;
+        for (int counter = 1; counter <= 1; counter++) {
+            roll_no = 1 + UNIVERSITY.nextInt(100000);
+
+        }
+
+
+
+
+
+
+
+
+
+
+create table attendance(enrollment_id_no varchar(40),course_name varchar(80),subject_name varchar(80),current_semester varchar(20));
+
+create table attendance_sheet(roll_no varchar(20),enrollment_id_no varchar(40),student_name varchar(80),course_name varchar(80),subject_name varchar(80),current_semester varchar(20),attendance varchar(30));
+
+
+create table attendance_sheet(roll_no varchar(20),enrollment_id_no varchar(40),student_name varchar(80),course_name varchar(80),current_semester varchar(20),attendance varchar(30));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+create table add_new_student_university(user_account varchar(40),enrollment_id_no varchar(40),password varchar(30),roll_no varchar(30),student_name varchar(80),father_name varchar(80),age varchar(10),gender varchar(10),date_of_birth varchar(30),phone_no varchar(40),email_id varchar(100),aadhar_card_no varchar(50),father_phone_no varchar(40),class_X varchar(20),class_XII varchar(20),address varchar(150),city varchar(40),pin_code_no varchar(30),course_name varchar(80),course_code varchar(20),current_semester varchar(20),current_year varchar(20),admission_year varchar(20),status_1 varchar(20));
+
+create table university_student_admission_cancel(user_account varchar(40),enrollment_id_no varchar(40),roll_no varchar(30),course_name varchar(80),course_code varchar(20),current_semester varchar(20),current_year varchar(20),admission_year varchar(20));
+
+
+create table add_new_student_hostel(room_id_no varchar(30),enrollment_id_no varchar(40),roll_no varchar(30),hostel_name varchar(80),room_no varchar(30),student_name varchar(80),father_name varchar(80),age varchar(10),gender varchar(10),date_of_birth varchar(30),phone_no varchar(40),email_id varchar(100),aadhar_card_no varchar(50),father_phone_no varchar(40),address varchar(150),city varchar(40),pin_code_no varchar(30),course_name varchar(80),current_semester varchar(20),current_year varchar(20),admission_year varchar(20));
+
+
+create table add_new_faculty(user_account varchar(40),enrollment_id_no varchar(40),password varchar(30),roll_no varchar(30),faculty_name varchar(80),father_name varchar(80),age varchar(10),gender varchar(10),date_of_birth varchar(30),phone_no varchar(40),email_id varchar(100),aadhar_card_no varchar(50),alternate_phone_no varchar(40),address varchar(150),city varchar(40),pin_code_no varchar(30),course_name varchar(80),course_code varchar(20),admission_year varchar(20),faculty_experience varchar(20),faculty_salary varchar(40),faculty_payment_status varchar(20));
+
+create table faculty_admission_cancel(user_account varchar(40),enrollment_id_no varchar(40),roll_no varchar(30),course_name varchar(80),course_code varchar(20));
+
+
+create table add_new_subject(subject_id_no varchar(30),enrollment_id_no varchar(40),user_account varchar(40),roll_no varchar(30),faculty_name varchar(80),subject_code varchar(20),subject_name varchar(80),course_code varchar(20),course_name varchar(80),current_semester varchar(20),theory_marks varchar(20),practical_marks varchar(20),subject_status varchar(20));
+
+create table add_new_course(course_code varchar(20),course_name varchar(80),course_semester varchar(20),course_year varchar(20));
+
+
+create table login(user_account varchar(40),user_name varchar(50),password varchar(30));
+
+create table student_faculty_login(user_account varchar(40),enrollment_id_no varchar(40),password varchar(30),roll_no varchar(30));
+
+create table student_fees(enrollment_id_no varchar(40),roll_no varchar(30),student_name varchar(80),gender varchar(10),phone_no varchar(40),course_name varchar(80),current_semester varchar(20),current_year varchar(20),university_fees varchar(30),fees_status varchar(20),hostel_status varchar(20),hostel_fees varchar(30),status_2 varchar(20));
+
+
+create table add_new_room(room_id_no varchar(30),hostel_name varchar(80),room_no varchar(30),room_status varchar(20),cleaning_status varchar(20),activate_status varchar(20),student_status varchar(20));
+
+create table add_new_employee(employee_id_no varchar(30),employee_name varchar(80),father_name varchar(80),age varchar(10),gender varchar(10),date_of_birth varchar(30),phone_no varchar(40),email_id varchar(100),aadhar_card_no varchar(50),alternate_phone_no varchar(40),address varchar(150),city varchar(40),pin_code_no varchar(30),job_name varchar(80),employee_salary varchar(40),employee_payment_status varchar(20));
+
+create table employee_cancel(employee_id_no varchar(40));
+
+create table student_leave_application(room_id_no varchar(30),room_no varchar(30),hostel_name varchar(80),student_name varchar(80),gender varchar(10),phone_no varchar(40),reason varchar(150),leave_status varchar(20));
+
+
+create table employee_payment(employee_id_no varchar(30),employee_name varchar(80),job_name varchar(80),payment_month varchar(30),employee_salary varchar(40),employee_payment_status varchar(20));
+
+create table faculty_payment(enrollment_id_no varchar(40),roll_no varchar(30),faculty_name varchar(80),payment_month varchar(30),faculty_salary varchar(40),faculty_payment_status varchar(20));
+
+create table add_new_book(book_id_no varchar(30),book_name varchar(100),author_name varchar(80),publisher_name varchar(100),isb_no varchar(50),total_book varchar(30),book_price varchar(30),book_pages varchar(30));
+
+create table add_issue_book(book_id_no varchar(30),book_name varchar(100),author_name varchar(80),publisher_name varchar(100),isb_no varchar(50),book_price varchar(30),book_pages varchar(30),enrollment_id_no varchar(40),roll_no varchar(30),student_name varchar(80),father_name varchar(80),phone_no varchar(40),email_id varchar(100),course_name varchar(80),current_semester varchar(20),issue_book_date varchar(30));
+
+create table add_return_book(enrollment_id_no varchar(40),book_id_no varchar(30),book_name varchar(100),author_name varchar(80),publisher_name varchar(100),isb_no varchar(50),book_price varchar(30),book_pages varchar(30),roll_no varchar(30),student_name varchar(80),father_name varchar(80),phone_no varchar(40),email_id varchar(100),course_name varchar(80),current_semester varchar(20),issue_book_date varchar(30),return_book_date varchar(30));
+
+create table add_buy_book(book_id_no varchar(30),book_name varchar(100),author_name varchar(80),publisher_name varchar(100),isb_no varchar(50),total_book varchar(30),book_price varchar(30),book_pages varchar(30),enrollment_id_no varchar(40),roll_no varchar(30),student_name varchar(80),father_name varchar(80),gender varchar(10),phone_no varchar(40),email_id varchar(100),course_name varchar(80),current_semester varchar(20),current_year varchar(20),buy_total_book varchar(30),total_payment varchar(30));
+
+create table add_payment_employee(job_name varchar(80),employee_salary varchar(40));
+
+count query :-
+select COUNT(*)
+From table_name;
+
+select COUNT(*) from table_name;  akhu table jova mate...
+
+select COUNT(table nu koi ek sabhay jova mate) from add_course;
+
+select course_name, COUNT(*) from add_new_admission_student GROUP by course_name;  ->> koi ek sabay mate
+
